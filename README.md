@@ -1,6 +1,6 @@
 # C语言入门
 
-
+## 
 
 
 
@@ -41,24 +41,58 @@ compilation terminated.”
 （2）更新 includePath：
 在 c_cpp_properties.json 文件中，找到 includePath 属性。你需要确保它包含了标准库头文件的路径。对于 macOS，这通常是 /usr/local/include 和 Xcode 或 Command Line Tools 提供的路径。
 
+## 配置环境变量
 
-或配置环境变量
+### 配置编译器
 
-```C
+- 1.vscode 搭建 C/C++ 编译环境教程（Mac）
 
-```
+- 2.安装 C/C++ 插件
+
+如下图示，点击扩展，然后在商店文本框中输入 C/C++，再选择 C/C++ 插件，点击安装。
+
+<img width="465" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/31998857-466b-4589-92d3-73ca07d01f8f">
+
+- 3.打开终端
+command + 空格，然后输入terminal，如下图示。
+
+<img width="341" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/b50f7bfc-7311-45a3-a03a-5f0c1a9e6237">
+
+在命令行中输入 clang --version，如果之前没有安装 clang 的话，就会出现下图的对话框，点击安装，如下图。
+
+<img width="659" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/55fee77c-f3e7-4f43-9f98-ffa671a9928e">
 
 
+安装完成之后，验证是否成功，在命令行中输入 clang --version，显示大致如下图示，代表成功了。
 
-```C
+<img width="729" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/b5f97ed6-88e9-4754-a12d-84f0b644d777">
 
-clang --version
-Apple clang version 15.0.0 (clang-1500.1.0.2.5)
-Target: x86_64-apple-darwin23.2.0
-Thread model: posix
-InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 
-```
+- 4.编写测试代码
+新建 test 文件夹，并在 vscode 中打开，如下图示。
+
+<img width="387" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/c9fd73c5-6602-4ec5-8260-c361daefccaf">
+
+
+- 5.新建猜测是脚本
+
+点击下图中的椭圆形框，添加 cpp 文件，如下图示。
+
+<img width="595" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/c64a81e9-2d72-4616-81e6-9a9b6e92965a">
+
+
+按下 command + shift + P 调出面板，输入C/C++，选择编辑配置(UI)，如下图示。
+<img width="489" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/3488b51d-b6ed-443d-a2b8-db1d0721bd48">
+
+输入一段可以运行的简易代码，如下图示。
+
+<img width="613" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/673d68c5-9085-4785-a8d1-4c3925bf64eb">
+
+## 配置编译器
+
+<img width="400" heigh="400" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/17296c52-4496-4164-8093-98a11d0405c1">
+
+
 
 参考：
 >https://zhuanlan.zhihu.com/p/666667188
