@@ -2,7 +2,7 @@
 
 
 
-## 配置环境变量
+## 1.配置运行环境
 
 ### 配置编译器
 
@@ -49,8 +49,7 @@ command + 空格，然后输入terminal，如下图示。
 
 <img width="613" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/673d68c5-9085-4785-a8d1-4c3925bf64eb">
 
-## 配置编译器
-
+## 2.配置编译器
 
 按下 command + shift + P 调出面板，输入C/C++，选择编辑配置(UI)，如下图示。
 
@@ -87,6 +86,114 @@ command + 空格，然后输入terminal，如下图示。
     "version": 4
 
 ```
+
+## 配置构建任务
+
+在 test.cpp 界面，按下 command + shift + P 调出面板，输入 tasks，选择任务：配置默认生成任务，然后选择 C/C++: clang++ 生成活动文件，如下图示。
+
+<img width="455" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/c1b8d0df-6e2d-4b37-a3ea-cafcc8cfad26">
+
+配置默认生成任务
+
+<img width="424" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/46963095-dd4d-40b8-a33b-933258446e9b">
+
+选择 C/C++: clang++ 生成活动文件
+
+
+此时 .vscode 文件夹中多出一个 tasks.json 文件，如下图示。
+
+
+<img width="528" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/46f90293-8607-48c4-8819-b0ac9533e008">
+
+
+tasks.json 文件内容如下：
+
+```json
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: clang++ 生成活动文件",
+			"command": "/usr/bin/clang++",
+			"args": [
+				"-fcolor-diagnostics",
+				"-fansi-escape-codes",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "编译器: /usr/bin/clang++"
+		}
+	]
+}
+```
+
+## 配置调试设置
+
+在 test.cpp 界面，按下 command + shift + P 调出面板，输入 debug，选择调试：开始调试，如下图示：
+
+<img width="400" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/9624f2e9-1b58-42e6-aa83-d54bb619ab40">
+
+调试：开始调试
+
+此时，会弹出一个对话框，点击好，如下图示。
+
+<img width="400" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/037fefe1-4715-4106-8a1e-3a702fa6dce7">
+
+点击下图中的 1，然后选择 C/C++： clang++ 生成和调试活动文件，如下图示。
+
+<img width="400" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/515fc0f2-dd88-40cc-a0cc-6f5fbc680e5e">
+生成和调试活动文件
+
+此时 .vscode 文件夹中多出一个 launch.json 文件，如下图示。
+
+<img width="400" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/e79ddb26-8d9f-4b04-8bc4-c729203e38af">
+
+launch.json 文件修改成如下：
+
+```json
+{
+    "configurations": [
+        {
+            "name": "C/C++: clang++ 生成和调试活动文件",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: clang++ 生成活动文件"
+        }
+    ],
+    "version": "2.0.0"
+}
+```
+
+
+## 验证可行性
+
+在 test.cpp 界面，在 return 前面打个断点，然后按下 F5 进行调试，如下图示，会在 test 文件夹中生成一个 test 文件，点击之后显示如下，则代表没问题了。
+
+<img width="500" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/b369c90d-3b9c-4d06-9bf2-6111a3c2bf42">
+
+
+
+
 
 
 
