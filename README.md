@@ -1,45 +1,6 @@
 # C语言入门
 
-## 
 
-
-
-
-
-
-# 常见问题
-
-##  1.mac vscode运行C main.c报错
-
-“fixed/stdio.h:78:10: fatal error: _stdio.h: No such file or directory
-   78 | #include <_stdio.h>
-      |          ^~~~~~~~~~
-compilation terminated.”
-
-解决办法：
-
-（1）安装xcode
-（2）运行xcode-select -p 弹出下载器安装
-（3）通过运行 sudo xcodebuild -license accept 来接受 Xcode 许可协议
-（4）运行xcode-select --install
-（5）运行sudo xcodebuild -license accept 接受 Xcode 许可协议
-（6）运行brew install gcc
-（7）运行 gcc-11 --version 来查看是否能够正确输出版本信息。
-
-
-## 2.运行run debug 报错
-“检测到 #include 错误。请更新 includePath。已为此翻译单元(/Users/liyinchi/workspace/C/c_learn/main.c)禁用波形曲线。C/C++(1696)
-无法打开 源 文件 "_stdio.h" (dependency of "stdio.h")C/C++(1696)”
-
-解决办法：
-
-（1）打开 c_cpp_properties.json 文件：
-- 在 VSCode 中，点击左侧活动栏的 C/C++ 图标（象征性的 {}）来打开 C/C++ 视图。
-- 点击视图顶部的“配置 (UI)”按钮，或者在命令面板（Ctrl+Shift+P 或 Cmd+Shift+P）中输入并选择“C/C++: Edit Configurations (UI)”。
-- 如果你更喜欢直接编辑 JSON 文件，可以选择“C/C++: Edit Configurations (JSON)”来打开 c_cpp_properties.json 文件。
-
-（2）更新 includePath：
-在 c_cpp_properties.json 文件中，找到 includePath 属性。你需要确保它包含了标准库头文件的路径。对于 macOS，这通常是 /usr/local/include 和 Xcode 或 Command Line Tools 提供的路径。
 
 ## 配置环境变量
 
@@ -90,7 +51,83 @@ command + 空格，然后输入terminal，如下图示。
 
 ## 配置编译器
 
+
+按下 command + shift + P 调出面板，输入C/C++，选择编辑配置(UI)，如下图示。
+
 <img width="400" heigh="400" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/17296c52-4496-4164-8093-98a11d0405c1">
+
+此时，vscode 界面左上角的 test 文件夹下会出现一个.vscode 文件夹，如下图示。
+
+<img width="473" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/abc68b96-caa0-4b03-bd74-2a3c2e886456">
+
+在当前界面下，将 IntelliSense 模式，设置成 clang-x64(legacy)，将 C 标准设置为 c17，C++ 标准设置为c++17，如下图示。
+
+<img width="447" alt="image" src="https://github.com/liyinchigithub/c_learn/assets/19643260/b4ee09b5-8aef-4e76-ad2f-5af91d564ed5">
+
+此时，.vscode 文件夹 c_cpp_properties.json 文件内容如下：
+
+```json
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/clang++",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+
+```
+
+
+
+
+
+
+# 常见问题
+
+##  1.mac vscode运行C main.c报错
+
+“fixed/stdio.h:78:10: fatal error: _stdio.h: No such file or directory
+   78 | #include <_stdio.h>
+      |          ^~~~~~~~~~
+compilation terminated.”
+
+解决办法：
+
+（1）安装xcode
+（2）运行xcode-select -p 弹出下载器安装
+（3）通过运行 sudo xcodebuild -license accept 来接受 Xcode 许可协议
+（4）运行xcode-select --install
+（5）运行sudo xcodebuild -license accept 接受 Xcode 许可协议
+（6）运行brew install gcc
+（7）运行 gcc-11 --version 来查看是否能够正确输出版本信息。
+
+
+## 2.运行run debug 报错
+“检测到 #include 错误。请更新 includePath。已为此翻译单元(/Users/liyinchi/workspace/C/c_learn/main.c)禁用波形曲线。C/C++(1696)
+无法打开 源 文件 "_stdio.h" (dependency of "stdio.h")C/C++(1696)”
+
+解决办法：
+
+（1）打开 c_cpp_properties.json 文件：
+- 在 VSCode 中，点击左侧活动栏的 C/C++ 图标（象征性的 {}）来打开 C/C++ 视图。
+- 点击视图顶部的“配置 (UI)”按钮，或者在命令面板（Ctrl+Shift+P 或 Cmd+Shift+P）中输入并选择“C/C++: Edit Configurations (UI)”。
+- 如果你更喜欢直接编辑 JSON 文件，可以选择“C/C++: Edit Configurations (JSON)”来打开 c_cpp_properties.json 文件。
+
+（2）更新 includePath：
+在 c_cpp_properties.json 文件中，找到 includePath 属性。你需要确保它包含了标准库头文件的路径。对于 macOS，这通常是 /usr/local/include 和 Xcode 或 Command Line Tools 提供的路径。
+
+
 
 
 
